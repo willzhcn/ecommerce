@@ -1,0 +1,41 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:mysql://49.232.136.74:3306/ecommerce?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: "ecomm"
+    password: "@ecmzaq1"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    port: 6379
+    host: localhost
+
+#开启feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: false
+  application:
+    name: admin
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  session:
+    store-type: redis
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+  global-config:
+    db-config:
+      id-type: auto
+
+
+#暴露所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
